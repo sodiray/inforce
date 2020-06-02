@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/rayepps/inforcer#readme",
   "scripts": {
-    "test": "null"
+    "start": "node cli.js --targetPath . --level verbose"
   },
   "keywords": [
     "test",

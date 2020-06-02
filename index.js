@@ -93,7 +93,7 @@ const loadFileModule = withIgnoreSkipped(async (testFile) => ({
   module: await import(testFile.path)
 }))
 
-const skipExportNotFunction = (name, fn) => typeof fn === 'function'  ? { fn, name } : skip({}, 'export-type')
+const skipExportNotFunction = (name, fn) => typeof fn === 'function'  ? { fn, name } : skip({ fn, name }, 'export-type')
 
 const skipOrKeepExported = (exported) => !exported.match ? skip(exported, 'function-name') : exported
 const skipExportNotMatchingPattern = (pattern) => withIgnoreSkipped(withPatternMatch(pattern, a => a.name)(skipOrKeepExported))
@@ -181,12 +181,13 @@ const logResults = (logger, resultTree) => {
 
   const [executed, skipped] = seperate(resultTree.results, r => !r.skip)
 
-  const logSkip = reason => logger.info(`${yellow('SKIP')} - ${reason}`)
   const logPass = name => logger.log(`${green('PASS')} - ${name}`)
   const logFail = name => logger.log(`${red('FAIL')} - ${name}`)
+  const logSkip = reason => logger.info(`${yellow('SKIP')} - ${reason}`)
+
 
   for (const skip of skipped) {
-    logSkip(skip.reason)
+    logSkip(`file (${skip.filename}) does not match test file naming pattern (${skip.pattern})`)
   }
   logger.info('')
 
@@ -195,7 +196,11 @@ const logResults = (logger, resultTree) => {
     logger.log(underline.cyan(fileResult.filename))
     for (const test of fileResult.tests) {
       if (test.skip) {
-        logSkip(test.reason)
+        if (test.skipType === 'function-name') {
+          logSkip(`function (${test.name}) does not match pattern (${test.pattern})`)
+        } else if (test.skipType === 'export-type') {
+          logSkip(`export (${test.name}) is not a function`)
+        }
       } else if (test.passed) {
         logPass(test.name)
       } else {

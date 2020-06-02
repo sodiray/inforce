@@ -1,0 +1,36 @@
+{
+  "name": "inforcer",
+  "version": "0.0.8",
+  "description": "A simple function based test runner",
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayepps/inforcer.git"
+  },
+  "author": "rayepps",
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "inforcer": "cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/rayepps/inforcer/issues"
+  },
+  "homepage": "https://github.com/rayepps/inforcer#readme",
+  "scripts": {
+    "test": "null"
+  },
+  "keywords": [
+    "test",
+    "cli",
+    "collection",
+    "unit"
+  ],
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "fs-extra": "^9.0.0",
+    "inforcer": "0.0.4",
+    "minimist": "^1.2.5"
+  }
+}

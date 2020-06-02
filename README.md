@@ -15,7 +15,7 @@ Add as an npm script in `package.json`.
 ```
 
 ## Options
-TODO: link to run function args
+Check out the main function's params/defaults [here](https://github.com/rayepps/inforcer/blob/6d400c01f1cddcf122b069ba6e0b29c1fa337af5/index.js#L10).
 
 ### --targetPath
 The relative path to search for tests. Can be directory or file. Deafults to `./src`.
@@ -33,5 +33,8 @@ The log level to use.
 - verbose: log lots. helpful for debugging test collection/running not working as you expect
 - debug: log everything. helpful for debugging issues with the inforcer project
 
-## Demo
+## Example Output
 <img width="1060" alt="Test output example" src="https://user-images.githubusercontent.com/15269623/83482718-37e72e00-a45e-11ea-8026-004de2eb148c.png">
+
+## Example Test File
+See [example.test.js](https://github.com/rayepps/inforcer/blob/master/example.test.js)

@@ -1,25 +1,26 @@
 {
-  "name": "inforcer",
+  "name": "inforce",
   "version": "0.0.8",
   "description": "A simple function based test runner",
   "main": "index.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rayepps/inforcer.git"
+    "url": "git+https://github.com/rayepps/inforce.git"
   },
   "author": "rayepps",
   "license": "MIT",
   "private": false,
   "bin": {
-    "inforcer": "cli.js"
+    "inforce": "cli.js"
   },
   "bugs": {
-    "url": "https://github.com/rayepps/inforcer/issues"
+    "url": "https://github.com/rayepps/inforce/issues"
   },
-  "homepage": "https://github.com/rayepps/inforcer#readme",
+  "homepage": "https://github.com/rayepps/inforce#readme",
   "scripts": {
-    "start": "node cli.js --targetPath . --level verbose"
+    "start": "node cli.js --targetPath . --level verbose",
+    "test": "node ./test/index.js"
   },
   "keywords": [
     "test",
@@ -30,7 +31,6 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "fs-extra": "^9.0.0",
-    "inforcer": "0.0.4",
     "minimist": "^1.2.5"
   }
 }

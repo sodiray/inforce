@@ -1,6 +1,6 @@
 {
   "name": "inforce",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A simple function based test runner",
   "main": "index.js",
   "type": "module",
@@ -20,7 +20,16 @@
   "homepage": "https://github.com/rayepps/inforce#readme",
   "scripts": {
     "start": "node cli.js --targetPath . --level verbose",
-    "test": "node ./test/index.js"
+    "test": "c8 node ./test.js",
+    "lint": "eslint ./lib && eslint ./cli.js"
+  },
+  "c8": {
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100,
+    "reporter": "html",
+    "report-dir": ".coverage"
   },
   "keywords": [
     "test",
@@ -32,5 +41,10 @@
     "chalk": "^4.0.0",
     "fs-extra": "^9.0.0",
     "minimist": "^1.2.5"
+  },
+  "devDependencies": {
+    "c8": "^7.1.2",
+    "chai": "^4.2.0",
+    "eslint": "^7.1.0"
   }
 }

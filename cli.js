@@ -12,7 +12,7 @@ import { aggregate } from './lib/aggregate.js'
 const withCliArgs = (fn) => async () => await fn(parse(process.argv.slice(2)))
 
 const withExitProcess = (fn) => async (...args) => {
-  try { await fn(...args) && process.exit(0) } catch (err) { console.error(err) && process.exit(1) }
+  try { await fn(...args); process.exit(0) } catch (err) { console.error(err) && process.exit(1) }
 }
 
 const withThrowIfFailed = (fn) => async (...args) => {
